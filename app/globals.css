@@ -309,7 +309,7 @@ a {
 .hero h1 {
   max-width: 1000px;
   font-family: var(--font-display);
-  font-size: clamp(40px, 11vw, 64px);
+  font-size: clamp(30px, 9vw, 64px);
   line-height: 0.95;
   letter-spacing: -0.075em;
   font-weight: 700;
