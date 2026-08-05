@@ -1,212 +1,468 @@
 "use client";
 
-import { useState } from "react";
+import { ArrowUpRight, Code2, Layers3, Smartphone, Globe2 } from "lucide-react";
 
-const STACKS = {
-  postgres: {
-    label: "Postgres",
-    dbLabel: "PostgreSQL",
-    dbSub: "relational",
-    showOrm: true,
-    caption: (
-      <>
-        <strong>When it fits:</strong> structured data, real relationships
-        between records, and transactions that can't be allowed to fail.
-        Billing, inventory, anything with joins.
-      </>
-    ),
+const services = [
+  {
+    number: "01",
+    icon: Globe2,
+    title: "Websites",
+    text: "High-converting websites designed around your brand, your audience, and what you want people to do next.",
   },
-  mongodb: {
-    label: "MongoDB",
-    dbLabel: "MongoDB",
-    dbSub: "document",
-    showOrm: true,
-    caption: (
-      <>
-        <strong>When it fits:</strong> flexible or evolving schemas, content
-        that shapeshifts between records, and fast iteration early in a
-        product's life.
-      </>
-    ),
+  {
+    number: "02",
+    icon: Layers3,
+    title: "Web Applications",
+    text: "Custom platforms, dashboards, portals, marketplaces, and business systems built around the way your business actually works.",
   },
-  firebase: {
-    label: "Firebase",
-    dbLabel: "Firebase",
-    dbSub: "realtime + auth",
-    showOrm: false,
-    caption: (
-      <>
-        <strong>When it fits:</strong> real-time sync, auth out of the box,
-        and MVPs that need to ship this week, not this quarter. No ORM layer
-        needed.
-      </>
-    ),
+  {
+    number: "03",
+    icon: Smartphone,
+    title: "Mobile Experiences",
+    text: "Modern mobile products that make your services easier to access, easier to use, and easier to grow.",
   },
-};
+  {
+    number: "04",
+    icon: Code2,
+    title: "Custom Software",
+    text: "From internal tools to complete digital products, we turn complicated ideas into software people can actually use.",
+  },
+];
 
-function StackDiagram() {
-  const [active, setActive] = useState("postgres");
-  const stack = STACKS[active];
+const projects = [
+  {
+    type: "Healthcare platform",
+    title: "CareTrack",
+    description:
+      "A digital healthcare platform connecting patients, appointments, records, and everyday clinical workflows.",
+    className: "project-one",
+  },
+  {
+    type: "Business platform",
+    title: "Built around your business",
+    description:
+      "Custom systems that replace spreadsheets, repetitive processes, and disconnected tools with one intelligent platform.",
+    className: "project-two",
+  },
+  {
+    type: "Commerce",
+    title: "Digital storefronts",
+    description:
+      "Beautiful commerce experiences that help businesses showcase products and turn visitors into customers.",
+    className: "project-three",
+  },
+];
+
+function ServiceCard({ service }) {
+  const Icon = service.icon;
 
   return (
-    <div className="diagram-panel">
-      <div className="diagram-toolbar">
-        <span className="diagram-label">architecture.select(database)</span>
-        <div className="db-toggle">
-          {Object.entries(STACKS).map(([key, s]) => (
-            <button
-              key={key}
-              className="db-btn"
-              data-active={active === key}
-              onClick={() => setActive(key)}
-            >
-              {s.label}
-            </button>
-          ))}
-        </div>
+    <div className="service-card">
+      <div className="service-top">
+        <span>{service.number}</span>
+        <Icon size={22} strokeWidth={1.5} />
       </div>
 
-      <div className="diagram-body">
-        <div className="node">
-          <span className="node-label">Next.js</span>
-          <span className="node-sub">app</span>
-        </div>
+      <h3>{service.title}</h3>
 
-        <div className="connector" />
+      <p>{service.text}</p>
 
-        {stack.showOrm && (
-          <>
-            <div className="node">
-              <span className="node-label">Prisma</span>
-              <span className="node-sub">type-safe ORM</span>
-            </div>
-            <div className="connector" />
-          </>
-        )}
-
-        <div className="node" data-role="db">
-          <span className="node-label">{stack.dbLabel}</span>
-          <span className="node-sub">{stack.dbSub}</span>
-        </div>
-      </div>
-
-      <div className="diagram-caption">{stack.caption}</div>
+      <span className="service-arrow">
+        <ArrowUpRight size={18} />
+      </span>
     </div>
   );
 }
 
 export default function Page() {
   return (
-    <>
-      <header className="wrap nav">
-        <div className="logo">
-          <span className="logo-dot" />
-          STACKFORGE
-        </div>
-        <a className="nav-link" href="#contact">
-          Get in touch
+    <main className="site">
+      {/* NAVIGATION */}
+
+      <header className="nav wrap">
+        <a href="#" className="brand">
+          <span className="brand-mark">
+            <span />
+            <span />
+          </span>
+
+          <span>Aurelia</span>
+        </a>
+
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+        </nav>
+
+        <a href="#contact" className="nav-cta">
+          Start a project
+          <ArrowUpRight size={16} />
         </a>
       </header>
 
-      <main>
-        <section className="hero" style={{ borderTop: "none" }}>
-          <div className="wrap">
-            <p className="eyebrow">full-stack development</p>
-            <h1>
-              Ship the right stack.
-              <br />
-              Not just <span className="accent">a</span> stack.
-            </h1>
-            <p className="hero-sub">
-              Stackforge builds full-stack Next.js apps — wired to whichever
-              database actually fits the job, not whichever one's trending.
+      {/* HERO */}
+
+      <section className="hero">
+        <div className="wrap">
+          <div className="hero-intro">
+            <div className="status">
+              <span className="status-dot" />
+              Digital product studio
+            </div>
+
+            <p className="hero-location">
+              Websites · Apps · Software
             </p>
-
-            <StackDiagram />
           </div>
-        </section>
 
-        <section className="positioning">
-          <div className="wrap">
-            <p className="section-label">positioning</p>
+          <h1>
+            We build digital
+            <br />
+            products people
+            <br />
+            <span>remember.</span>
+          </h1>
+
+          <div className="hero-bottom">
             <p>
-              For founders and small teams who need a working product fast,
-              Stackforge is a development partner that builds{" "}
-              <span className="hl">full-stack Next.js applications</span>{" "}
-              tailored to what they're actually for — Postgres for
-              structured, relational data, MongoDB for flexible schemas,
-              Prisma for type-safe database access, or Firebase for
-              real-time features and quick MVPs. Unlike agencies that push
-              one stack regardless of fit, the tools get chosen based on
-              what the product needs.
+              Aurelia is a digital product studio helping ambitious businesses
+              turn ideas into beautiful, useful technology — from websites and
+              web apps to complete business platforms.
+            </p>
+
+            <a href="#work" className="hero-link">
+              Explore our work
+              <span>
+                <ArrowUpRight size={18} />
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* VISUAL STATEMENT */}
+
+      <section className="visual-section">
+        <div className="wrap">
+          <div className="visual-card">
+            <div className="visual-grid" />
+
+            <div className="floating-card card-one">
+              <span>01</span>
+              <strong>Idea</strong>
+            </div>
+
+            <div className="floating-card card-two">
+              <span>02</span>
+              <strong>Design</strong>
+            </div>
+
+            <div className="floating-card card-three">
+              <span>03</span>
+              <strong>Build</strong>
+            </div>
+
+            <div className="visual-center">
+              <div className="visual-orbit orbit-one" />
+              <div className="visual-orbit orbit-two" />
+
+              <div className="visual-core">
+                A
+              </div>
+            </div>
+
+            <div className="visual-copy">
+              <span>FROM IDEA</span>
+              <strong>TO PRODUCT.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTRO */}
+
+      <section className="intro">
+        <div className="wrap intro-grid">
+          <div>
+            <p className="section-label">What we do</p>
+          </div>
+
+          <div>
+            <h2>
+              Technology should make your business feel
+              <span> bigger, smarter, and easier to run.</span>
+            </h2>
+
+            <p className="intro-text">
+              You bring the idea. We bring the strategy, design, engineering,
+              and attention to detail needed to turn it into something real.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="services">
-          <div className="wrap">
-            <p className="section-label">services</p>
-            <div className="services-grid">
-              <div className="service-card">
-                <h3>Full-stack Next.js builds</h3>
+      {/* SERVICES */}
+
+      <section className="services" id="services">
+        <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <p className="section-label">Capabilities</p>
+              <h2>What we build.</h2>
+            </div>
+
+            <p>
+              Not templates. Not recycled solutions. We create digital
+              experiences around the problem you're trying to solve.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {services.map((service) => (
+              <ServiceCard key={service.number} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WORK */}
+
+      <section className="work" id="work">
+        <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <p className="section-label">Selected work</p>
+              <h2>Things we've built.</h2>
+            </div>
+
+            <p>
+              Every project starts with a different problem. That's why every
+              product we build gets its own approach.
+            </p>
+          </div>
+
+          <div className="projects">
+            {projects.map((project, index) => (
+              <article
+                className={`project ${project.className}`}
+                key={project.title}
+              >
+                <div className="project-visual">
+                  <div className="browser-window">
+                    <div className="browser-top">
+                      <div className="browser-dots">
+                        <i />
+                        <i />
+                        <i />
+                      </div>
+
+                      <span>aurelia.build</span>
+                    </div>
+
+                    <div className="browser-content">
+                      {index === 0 && (
+                        <>
+                          <div className="mock-sidebar" />
+
+                          <div className="mock-dashboard">
+                            <div className="mock-title" />
+
+                            <div className="mock-stats">
+                              <span />
+                              <span />
+                              <span />
+                            </div>
+
+                            <div className="mock-chart" />
+                          </div>
+                        </>
+                      )}
+
+                      {index === 1 && (
+                        <div className="mock-platform">
+                          <div />
+                          <div />
+                          <div />
+                          <div />
+                        </div>
+                      )}
+
+                      {index === 2 && (
+                        <div className="mock-store">
+                          <div className="store-image" />
+                          <div className="store-lines">
+                            <span />
+                            <span />
+                            <span />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="project-info">
+                  <div>
+                    <span className="project-type">{project.type}</span>
+                    <h3>{project.title}</h3>
+                  </div>
+
+                  <p>{project.description}</p>
+
+                  <button>
+                    View project
+                    <ArrowUpRight size={17} />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+
+      <section className="process" id="process">
+        <div className="wrap">
+          <div className="process-intro">
+            <p className="section-label">How we work</p>
+
+            <h2>
+              Clear thinking.
+              <br />
+              <span>Good design.</span>
+              <br />
+              Serious execution.
+            </h2>
+          </div>
+
+          <div className="process-list">
+            <div className="process-item">
+              <span>01</span>
+              <div>
+                <h3>Discover</h3>
                 <p>
-                  Frontend and backend in one codebase, deployed to Vercel.
-                  Fast to ship, easy to maintain.
+                  We understand your business, your users, and the problem
+                  before touching the code.
                 </p>
               </div>
-              <div className="service-card">
-                <h3>Database architecture</h3>
+            </div>
+
+            <div className="process-item">
+              <span>02</span>
+              <div>
+                <h3>Design</h3>
                 <p>
-                  Postgres or MongoDB, chosen for the shape of your data —
-                  not the shape of a trend.
+                  We shape the experience, interface, and product architecture
+                  so everything has a reason to exist.
                 </p>
               </div>
-              <div className="service-card">
-                <h3>Type-safe backends</h3>
+            </div>
+
+            <div className="process-item">
+              <span>03</span>
+              <div>
+                <h3>Build</h3>
                 <p>
-                  Prisma-backed queries and migrations that don't break at
-                  2am, with types that catch mistakes before your users do.
+                  Our engineers turn the approved direction into fast,
+                  reliable, production-ready software.
                 </p>
               </div>
-              <div className="service-card">
-                <h3>Real-time &amp; rapid MVPs</h3>
+            </div>
+
+            <div className="process-item">
+              <span>04</span>
+              <div>
+                <h3>Launch & grow</h3>
                 <p>
-                  Firebase when speed matters more than scale — auth,
-                  sync, and storage without weeks of setup.
+                  We don't disappear after launch. We help you improve,
+                  maintain, and evolve the product.
                 </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="who">
-          <div className="wrap who-for">
-            <p className="section-label" style={{ marginBottom: 0 }}>
-              who this is for
-            </p>
+      {/* TECH */}
+
+      <section className="technology">
+        <div className="wrap technology-inner">
+          <div>
+            <p className="section-label">Built properly</p>
+            <h2>
+              Modern technology.
+              <br />
+              <span>Thoughtful engineering.</span>
+            </h2>
+          </div>
+
+          <div className="tech-copy">
             <p>
-              Founders and small teams who need someone to make the right
-              technical call, not just write code — especially at the stage
-              where "which database should I use" actually matters.
+              We use modern tools and frameworks to build products that are
+              fast today and maintainable tomorrow.
             </p>
-          </div>
-        </section>
 
-        <section className="contact" id="contact">
-          <div className="wrap">
-            <p className="section-label">start a project</p>
-            <h2>Tell me what you're building. I'll tell you what it needs.</h2>
-            <a className="cta-btn" href="mailto:hello@stackforge.dev">
-              hello@stackforge.dev
-            </a>
+            <div className="tech-stack">
+              <span>Next.js</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>MongoDB</span>
+              <span>Firebase</span>
+              <span>Vercel</span>
+            </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <footer className="wrap">
-        <span>© {new Date().getFullYear()} Stackforge</span>
-        <span>Next.js · Vercel</span>
+      {/* CTA */}
+
+      <section className="contact" id="contact">
+        <div className="wrap contact-inner">
+          <p className="section-label">Have an idea?</p>
+
+          <h2>
+            Let's turn it into
+            <br />
+            <span>something real.</span>
+          </h2>
+
+          <p>
+            Tell us what you're thinking. Whether it's a new website, an app,
+            an internal system, or an idea you haven't fully figured out yet —
+            let's talk.
+          </p>
+
+          <a href="mailto:hello@aurelia.dev" className="contact-button">
+            Start a conversation
+            <ArrowUpRight size={20} />
+          </a>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+
+      <footer className="footer wrap">
+        <a href="#" className="brand">
+          <span className="brand-mark">
+            <span />
+            <span />
+          </span>
+
+          <span>Aurelia</span>
+        </a>
+
+        <div className="footer-center">
+          Websites · Apps · Software
+        </div>
+
+        <div className="footer-right">
+          © {new Date().getFullYear()} Aurelia
+        </div>
       </footer>
-    </>
+    </main>
   );
 }
