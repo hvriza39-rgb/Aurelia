@@ -48,7 +48,7 @@ export default function Logo({
 
   return (
     <svg
-      viewBox="120 0 1300 1024"
+      viewBox="0 0 1200 1024"
 
       width={width}
       height={height}
@@ -61,7 +61,7 @@ export default function Logo({
         <rect x="0" y="0" width="1536" height="1024" fill="#f5f3ee" />
       )}
 
-      <g transform="translate(-46.6, 224.3) scale(0.68)">
+     <g transform="translate(-166, 224.3) scale(0.68)">
         <defs>
           <clipPath id={leftClipId}>
             <rect x="0" y="0" width="432" height="1024" />
