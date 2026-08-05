@@ -84,10 +84,10 @@ export default function HomePage() {
           </div>
 
           <h1 className="animate-in delay-1">
-            We build digital 
-            
-            products people 
-            
+            We build digital
+            <br />
+            products people
+            <br />
             <span>remember.</span>
           </h1>
 
