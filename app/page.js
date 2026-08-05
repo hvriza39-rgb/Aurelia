@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowUpRight, Code2, Layers3, Smartphone, Globe2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  Code2,
+  Layers3,
+  Smartphone,
+  Globe2,
+} from "lucide-react";
+
+import Logo from "@/components/Logo";
 
 const services = [
   {
@@ -57,9 +65,10 @@ function ServiceCard({ service }) {
   const Icon = service.icon;
 
   return (
-    <div className="service-card">
+    <article className="service-card">
       <div className="service-top">
         <span>{service.number}</span>
+
         <Icon size={22} strokeWidth={1.5} />
       </div>
 
@@ -67,29 +76,34 @@ function ServiceCard({ service }) {
 
       <p>{service.text}</p>
 
-      <span className="service-arrow">
+      <span className="service-arrow" aria-hidden="true">
         <ArrowUpRight size={18} />
       </span>
-    </div>
+    </article>
   );
 }
 
 export default function Page() {
   return (
     <main className="site">
-      {/* NAVIGATION */}
+      {/* =========================================================
+          NAVIGATION
+      ========================================================== */}
 
       <header className="nav wrap">
-        <a href="#" className="brand">
-          <span className="brand-mark">
-            <span />
-            <span />
-          </span>
-
-          <span>Aurelia</span>
+        <a
+          href="#"
+          className="brand"
+          aria-label="Aurelia home"
+        >
+          <Logo
+            width={150}
+            height={100}
+            showBackground={false}
+          />
         </a>
 
-        <nav>
+        <nav aria-label="Main navigation">
           <a href="#work">Work</a>
           <a href="#services">Services</a>
           <a href="#process">Process</a>
@@ -101,7 +115,9 @@ export default function Page() {
         </a>
       </header>
 
-      {/* HERO */}
+      {/* =========================================================
+          HERO
+      ========================================================== */}
 
       <section className="hero">
         <div className="wrap">
@@ -126,13 +142,14 @@ export default function Page() {
 
           <div className="hero-bottom">
             <p>
-              Aurelia is a digital product studio helping ambitious businesses
-              turn ideas into beautiful, useful technology — from websites and
-              web apps to complete business platforms.
+              Aurelia is a digital product studio helping ambitious
+              businesses turn ideas into beautiful, useful technology —
+              from websites and web apps to complete business platforms.
             </p>
 
             <a href="#work" className="hero-link">
               Explore our work
+
               <span>
                 <ArrowUpRight size={18} />
               </span>
@@ -141,7 +158,9 @@ export default function Page() {
         </div>
       </section>
 
-      {/* VISUAL STATEMENT */}
+      {/* =========================================================
+          VISUAL STATEMENT
+      ========================================================== */}
 
       <section className="visual-section">
         <div className="wrap">
@@ -180,65 +199,98 @@ export default function Page() {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* =========================================================
+          INTRODUCTION
+      ========================================================== */}
 
       <section className="intro">
         <div className="wrap intro-grid">
           <div>
-            <p className="section-label">What we do</p>
+            <p className="section-label">
+              What we do
+            </p>
           </div>
 
           <div>
             <h2>
               Technology should make your business feel
-              <span> bigger, smarter, and easier to run.</span>
+              <span>
+                {" "}
+                bigger, smarter, and easier to run.
+              </span>
             </h2>
 
             <p className="intro-text">
-              You bring the idea. We bring the strategy, design, engineering,
-              and attention to detail needed to turn it into something real.
+              You bring the idea. We bring the strategy, design,
+              engineering, and attention to detail needed to turn
+              it into something real.
             </p>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* =========================================================
+          SERVICES
+      ========================================================== */}
 
-      <section className="services" id="services">
+      <section
+        className="services"
+        id="services"
+      >
         <div className="wrap">
           <div className="section-heading">
             <div>
-              <p className="section-label">Capabilities</p>
-              <h2>What we build.</h2>
+              <p className="section-label">
+                Capabilities
+              </p>
+
+              <h2>
+                What we build.
+              </h2>
             </div>
 
             <p>
-              Not templates. Not recycled solutions. We create digital
-              experiences around the problem you're trying to solve.
+              Not templates. Not recycled solutions. We create
+              digital experiences around the problem you're
+              trying to solve.
             </p>
           </div>
 
           <div className="services-grid">
             {services.map((service) => (
-              <ServiceCard key={service.number} service={service} />
+              <ServiceCard
+                key={service.number}
+                service={service}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* WORK */}
+      {/* =========================================================
+          WORK
+      ========================================================== */}
 
-      <section className="work" id="work">
+      <section
+        className="work"
+        id="work"
+      >
         <div className="wrap">
           <div className="section-heading">
             <div>
-              <p className="section-label">Selected work</p>
-              <h2>Things we've built.</h2>
+              <p className="section-label">
+                Selected work
+              </p>
+
+              <h2>
+                Things we've built.
+              </h2>
             </div>
 
             <p>
-              Every project starts with a different problem. That's why every
-              product we build gets its own approach.
+              Every project starts with a different problem.
+              That's why every product we build gets its own
+              approach.
             </p>
           </div>
 
@@ -257,7 +309,9 @@ export default function Page() {
                         <i />
                       </div>
 
-                      <span>aurelia.build</span>
+                      <span>
+                        aurelia.build
+                      </span>
                     </div>
 
                     <div className="browser-content">
@@ -291,6 +345,7 @@ export default function Page() {
                       {index === 2 && (
                         <div className="mock-store">
                           <div className="store-image" />
+
                           <div className="store-lines">
                             <span />
                             <span />
@@ -304,13 +359,20 @@ export default function Page() {
 
                 <div className="project-info">
                   <div>
-                    <span className="project-type">{project.type}</span>
-                    <h3>{project.title}</h3>
+                    <span className="project-type">
+                      {project.type}
+                    </span>
+
+                    <h3>
+                      {project.title}
+                    </h3>
                   </div>
 
-                  <p>{project.description}</p>
+                  <p>
+                    {project.description}
+                  </p>
 
-                  <button>
+                  <button type="button">
                     View project
                     <ArrowUpRight size={17} />
                   </button>
@@ -321,12 +383,19 @@ export default function Page() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* =========================================================
+          PROCESS
+      ========================================================== */}
 
-      <section className="process" id="process">
+      <section
+        className="process"
+        id="process"
+      >
         <div className="wrap">
           <div className="process-intro">
-            <p className="section-label">How we work</p>
+            <p className="section-label">
+              How we work
+            </p>
 
             <h2>
               Clear thinking.
@@ -340,44 +409,55 @@ export default function Page() {
           <div className="process-list">
             <div className="process-item">
               <span>01</span>
+
               <div>
                 <h3>Discover</h3>
+
                 <p>
-                  We understand your business, your users, and the problem
-                  before touching the code.
+                  We understand your business, your users,
+                  and the problem before touching the code.
                 </p>
               </div>
             </div>
 
             <div className="process-item">
               <span>02</span>
+
               <div>
                 <h3>Design</h3>
+
                 <p>
-                  We shape the experience, interface, and product architecture
-                  so everything has a reason to exist.
+                  We shape the experience, interface, and
+                  product architecture so everything has a
+                  reason to exist.
                 </p>
               </div>
             </div>
 
             <div className="process-item">
               <span>03</span>
+
               <div>
                 <h3>Build</h3>
+
                 <p>
-                  Our engineers turn the approved direction into fast,
-                  reliable, production-ready software.
+                  Our engineers turn the approved direction
+                  into fast, reliable, production-ready
+                  software.
                 </p>
               </div>
             </div>
 
             <div className="process-item">
               <span>04</span>
+
               <div>
-                <h3>Launch & grow</h3>
+                <h3>Launch &amp; grow</h3>
+
                 <p>
-                  We don't disappear after launch. We help you improve,
-                  maintain, and evolve the product.
+                  We don't disappear after launch. We help
+                  you improve, maintain, and evolve the
+                  product.
                 </p>
               </div>
             </div>
@@ -385,23 +465,31 @@ export default function Page() {
         </div>
       </section>
 
-      {/* TECH */}
+      {/* =========================================================
+          TECHNOLOGY
+      ========================================================== */}
 
       <section className="technology">
         <div className="wrap technology-inner">
           <div>
-            <p className="section-label">Built properly</p>
+            <p className="section-label">
+              Built properly
+            </p>
+
             <h2>
               Modern technology.
               <br />
-              <span>Thoughtful engineering.</span>
+              <span>
+                Thoughtful engineering.
+              </span>
             </h2>
           </div>
 
           <div className="tech-copy">
             <p>
-              We use modern tools and frameworks to build products that are
-              fast today and maintainable tomorrow.
+              We use modern tools and frameworks to build
+              products that are fast today and maintainable
+              tomorrow.
             </p>
 
             <div className="tech-stack">
@@ -418,11 +506,18 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* =========================================================
+          CONTACT / CTA
+      ========================================================== */}
 
-      <section className="contact" id="contact">
+      <section
+        className="contact"
+        id="contact"
+      >
         <div className="wrap contact-inner">
-          <p className="section-label">Have an idea?</p>
+          <p className="section-label">
+            Have an idea?
+          </p>
 
           <h2>
             Let's turn it into
@@ -431,28 +526,36 @@ export default function Page() {
           </h2>
 
           <p>
-            Tell us what you're thinking. Whether it's a new website, an app,
-            an internal system, or an idea you haven't fully figured out yet —
-            let's talk.
+            Tell us what you're thinking. Whether it's a new
+            website, an app, an internal system, or an idea
+            you haven't fully figured out yet — let's talk.
           </p>
 
-          <a href="mailto:hello@aurelia.dev" className="contact-button">
+          <a
+            href="mailto:hello@aurelia.dev"
+            className="contact-button"
+          >
             Start a conversation
             <ArrowUpRight size={20} />
           </a>
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* =========================================================
+          FOOTER
+      ========================================================== */}
 
       <footer className="footer wrap">
-        <a href="#" className="brand">
-          <span className="brand-mark">
-            <span />
-            <span />
-          </span>
-
-          <span>Aurelia</span>
+        <a
+          href="#"
+          className="brand footer-brand"
+          aria-label="Aurelia home"
+        >
+          <Logo
+            width={120}
+            height={80}
+            showBackground={false}
+          />
         </a>
 
         <div className="footer-center">
