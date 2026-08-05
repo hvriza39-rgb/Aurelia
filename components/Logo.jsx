@@ -62,10 +62,10 @@ export default function Logo({
         fontFamily="'Manrope', 'Helvetica Neue', Arial, sans-serif"
         fontWeight={800}
         letterSpacing="-0.04em"
-        fontSize={290}
+        fontSize={220}
         fill="#10110f"
       >
-        urelia
+        Aurelia
       </text>
 
       {/* Gold dot over the i */}
