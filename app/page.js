@@ -8,7 +8,7 @@ import {
   Globe2,
 } from "lucide-react";
 
-import Logo from "@root/components/Logo";
+import Logo from "../components/Logo";
 
 const services = [
   {
