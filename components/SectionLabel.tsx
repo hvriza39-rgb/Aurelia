@@ -1,13 +1,12 @@
-import React from 'react';
-
 interface SectionLabelProps {
-  label: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
-export const SectionLabel: React.FC<SectionLabelProps> = ({ label }) => {
+export default function SectionLabel({ children, className = "" }: SectionLabelProps) {
   return (
-    <span className="text-xs uppercase tracking-widest text-muted-foreground">
-      {label}
-    </span>
+    <p className={`section-label ${className}`}>
+      {children}
+    </p>
   );
-};
+}
