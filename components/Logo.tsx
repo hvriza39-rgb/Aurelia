@@ -37,7 +37,6 @@ export default function Logo({
 
     measure();
 
-    // Remeasure when fonts load — Manrope may arrive after initial paint
     if (typeof document !== "undefined" && document.fonts) {
       document.fonts.ready.then(measure);
     }
@@ -48,10 +47,10 @@ export default function Logo({
 
   return (
     <svg
-      viewBox="0 0 1200 1024"
-
+      viewBox="0 280 1536 420"
       width={width}
       height={height}
+      preserveAspectRatio="xMinYMid meet"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
@@ -61,7 +60,7 @@ export default function Logo({
         <rect x="0" y="0" width="1536" height="1024" fill="#f5f3ee" />
       )}
 
-     <g transform="translate(-166, 224.3) scale(0.68)">
+      <g transform="translate(-46.6, 224.3) scale(0.68)">
         <defs>
           <clipPath id={leftClipId}>
             <rect x="0" y="0" width="432" height="1024" />
@@ -102,8 +101,6 @@ export default function Logo({
         <tspan>a</tspan>
       </text>
 
-      {/* Gold dot over the "i" — positioned dynamically so it tracks
-          the actual rendered glyph even if Manrope fails to load. */}
       <circle cx={dot.cx} cy={dot.cy} r={17} fill="#f5f3ee" />
       <circle cx={dot.cx} cy={dot.cy} r={15} fill="#d6a85f" />
     </svg>
