@@ -62,7 +62,7 @@ export default function Logo({
         fontFamily="'Manrope', 'Helvetica Neue', Arial, sans-serif"
         fontWeight={800}
         letterSpacing="-0.04em"
-        fontSize={220}
+        fontSize={300}
         fill="#10110f"
       >
         Aurelia
