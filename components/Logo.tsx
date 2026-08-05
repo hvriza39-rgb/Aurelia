@@ -14,29 +14,56 @@ export default function Logo({
   className = "",
 }: LogoProps) {
   return (
-    <svg
-      width={width}
-      height={height}
-      viewBox="0 0 150 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
+    <div
+      className={`brand ${className}`}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "11px",
+        fontFamily: "var(--font-display)",
+        fontSize: "18px",
+        fontWeight: 800,
+        letterSpacing: "-0.04em",
+        color: showBackground ? "#f5f3ee" : "#10110f",
+      }}
     >
-      {showBackground && (
-        <rect width="150" height="100" rx="8" fill="#10110f" />
-      )}
-      <text
-        x={showBackground ? "75" : "0"}
-        y={showBackground ? "62" : "62"}
-        textAnchor={showBackground ? "middle" : "start"}
-        fill={showBackground ? "#f5f3ee" : "#10110f"}
-        fontFamily="Manrope, sans-serif"
-        fontWeight="800"
-        fontSize="42"
-        letterSpacing="-0.04em"
+      <span
+        className="brand-mark"
+        style={{
+          width: "29px",
+          height: "29px",
+          position: "relative",
+          display: "inline-block",
+          flexShrink: 0,
+        }}
       >
-        Aurelia
-      </text>
-    </svg>
+        <span
+          style={{
+            position: "absolute",
+            display: "block",
+            width: "16px",
+            height: "16px",
+            border: "2px solid currentColor",
+            transform: "rotate(45deg)",
+            top: "1px",
+            left: "1px",
+          }}
+        />
+        <span
+          style={{
+            position: "absolute",
+            display: "block",
+            width: "16px",
+            height: "16px",
+            border: "2px solid #d6a85f",
+            background: "#d6a85f",
+            transform: "rotate(45deg)",
+            right: "1px",
+            bottom: "1px",
+          }}
+        />
+      </span>
+      Aurelia
+    </div>
   );
 }
