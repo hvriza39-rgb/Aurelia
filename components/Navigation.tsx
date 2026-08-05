@@ -35,7 +35,7 @@ export default function Navigation() {
       <header className={scrolled ? "nav-sticky" : ""}>
         <div className="nav wrap">
           <Link href="/" className="brand" aria-label="Aurelia home">
-            <Logo width={170} height={60} />
+            <Logo width={190} height={80} />
           </Link>
 
           <nav aria-label="Main navigation">
