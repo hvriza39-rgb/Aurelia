@@ -125,4 +125,234 @@ export default function HomePage() {
             <div className="floating-card card-three">
               <span>03</span>
               <strong>Build</strong>
+              </div>
+
+            <div className="visual-center">
+              <div className="visual-orbit orbit-one" />
+              <div className="visual-orbit orbit-two" />
+              <div className="visual-core">A</div>
+            </div>
+
+            <div className="visual-copy">
+              <span>FROM IDEA</span>
+              <strong>TO PRODUCT.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="trust">
+        <div className="wrap trust-grid">
+          <div>
+            <SectionLabel>What we do</SectionLabel>
+            <h2>
+              Built for businesses
+              <br />
+              that are ready to move.
+            </h2>
+          </div>
+          <div>
+            <p>
+              From founders launching their first product to established
+              businesses replacing outdated systems, Aurelia builds software
+              around the way the business actually works.
+            </p>
+            <div className="capabilities">
+              {capabilities.map((cap) => (
+                <span key={cap}>{cap}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="intro">
+        <div className="wrap intro-grid">
+          <div>
+            <SectionLabel>About us</SectionLabel>
+          </div>
+          <div>
+            <h2>
+              Technology should make your business feel
+              <span> bigger, smarter, and easier to run.</span>
+            </h2>
+            <p className="intro-text">
+              You bring the idea. We bring the strategy, design, engineering,
+              and attention to detail needed to turn it into something real.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="services" id="services">
+        <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <SectionLabel>Capabilities</SectionLabel>
+              <h2>What we build.</h2>
+            </div>
+            <p>
+              Not templates. Not recycled solutions. We create digital
+              experiences around the problem you&apos;re trying to solve.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {services.slice(0, 4).map((service) => (
+              <ServiceCard key={service.number} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="work" id="work">
+        <div className="wrap">
+          <div className="section-heading">
+            <div>
+              <SectionLabel>Selected work</SectionLabel>
+              <h2>Things we&apos;ve built.</h2>
+            </div>
+            <p>
+              Every project starts with a different problem. That&apos;s why
+              every product we build gets its own approach.
+            </p>
+          </div>
+
+          <div className="projects">
+            {projects.slice(0, 3).map((project, index) => (
+              <article className={`project ${project.className}`} key={project.slug}>
+                <div className="project-visual">
+                  <ProjectVisual index={index} />
+                </div>
+                <div className="project-info">
+                  <div>
+                    <span className="project-type">{project.type}</span>
+                    <h3>{project.title}</h3>
+                  </div>
+                  <p>{project.description}</p>
+                  <Link href={`/work/${project.slug}`}>
+                    View case study
+                    <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="process" id="process">
+        <div className="wrap">
+          <div className="process-intro">
+            <SectionLabel>How we work</SectionLabel>
+            <h2>
+              Clear thinking.
+              <br />
+              <span>Good design.</span>
+              <br />
+              Serious execution.
+            </h2>
+          </div>
+
+          <div className="process-list">
+            <div className="process-item">
+              <span>01</span>
+              <div>
+                <h3>Discover</h3>
+                <p>
+                  We understand your business, your users, and the problem
+                  before touching the code.
+                </p>
+              </div>
+            </div>
+            <div className="process-item">
+              <span>02</span>
+              <div>
+                <h3>Design</h3>
+                <p>
+                  We shape the experience, interface, and product architecture
+                  so everything has a reason to exist.
+                </p>
+              </div>
+            </div>
+            <div className="process-item">
+              <span>03</span>
+              <div>
+                <h3>Build</h3>
+                <p>
+                  Our engineers turn the approved direction into fast, reliable,
+                  production-ready software.
+                </p>
+              </div>
+            </div>
+            <div className="process-item">
+              <span>04</span>
+              <div>
+                <h3>Launch &amp; grow</h3>
+                <p>
+                  We don&apos;t disappear after launch. We help you improve,
+                  maintain, and evolve the product.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="technology">
+        <div className="wrap technology-inner">
+          <div>
+            <SectionLabel>Built properly</SectionLabel>
+            <h2>
+              Modern technology.
+              <br />
+              <span>Thoughtful engineering.</span>
+            </h2>
+          </div>
+          <div className="tech-copy">
+            <p>
+              We use modern tools and frameworks to build products that are
+              fast today and maintainable tomorrow.
+            </p>
+            <div className="tech-stack">
+              {[
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Node.js",
+                "PostgreSQL",
+                "MongoDB",
+                "Firebase",
+                "Vercel",
+              ].map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact" id="contact">
+        <div className="wrap contact-inner">
+          <SectionLabel>Have an idea?</SectionLabel>
+          <h2>
+            Let&apos;s turn it into
+            <br />
+            <span>something real.</span>
+          </h2>
+          <p>
+            Tell us what you&apos;re thinking. Whether it&apos;s a new website,
+            an app, an internal system, or an idea you haven&apos;t fully
+            figured out yet — let&apos;s talk.
+          </p>
+          <Link href="/start-project" className="contact-button">
+            Start a project
+            <ArrowUpRight size={20} />
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
+
            
