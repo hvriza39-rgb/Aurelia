@@ -48,7 +48,8 @@ export default function Logo({
 
   return (
     <svg
-      viewBox="0 0 1536 1024"
+      viewBox="120 0 1300 1024"
+
       width={width}
       height={height}
       className={className}
