@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./aurelia-images.css"; // Add this line
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
