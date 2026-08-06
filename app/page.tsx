@@ -5,6 +5,24 @@ import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import { services, projects, capabilities } from "@/lib/data";
 
+/* =========================================================
+   IMAGES
+   Replace these Unsplash URLs with your own assets.
+   Recommended: warm tones, desaturated, editorial style.
+   ========================================================= */
+const IMAGES = {
+  about:
+    "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80",
+  trust:
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+  visualTexture:
+    "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80",
+  processTexture:
+    "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1600&q=80",
+  techTexture:
+    "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&w=1600&q=80",
+};
+
 function ServiceCard({ service }: { service: (typeof services)[0] }) {
   return (
     <article className="service-card">
@@ -73,6 +91,9 @@ function ProjectVisual({ index }: { index: number }) {
 export default function HomePage() {
   return (
     <main className="site">
+      {/* =========================================================
+          HERO
+          ========================================================= */}
       <section className="hero">
         <div className="wrap">
           <div className="hero-intro animate-in">
@@ -107,9 +128,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =========================================================
+          VISUAL STATEMENT — with subtle gold texture
+          ========================================================= */}
       <section className="visual-section">
         <div className="wrap">
-          <div className="visual-card">
+          <div
+            className="visual-card"
+            style={
+              {
+                "--visual-bg": `url(${IMAGES.visualTexture})`,
+              } as React.CSSProperties
+            }
+          >
             <div className="visual-grid" />
 
             <div className="floating-card card-one">
@@ -125,7 +156,7 @@ export default function HomePage() {
             <div className="floating-card card-three">
               <span>03</span>
               <strong>Build</strong>
-              </div>
+            </div>
 
             <div className="visual-center">
               <div className="visual-orbit orbit-one" />
@@ -141,15 +172,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =========================================================
+          TRUST — with editorial image
+          ========================================================= */}
       <section className="trust">
         <div className="wrap trust-grid">
-          <div>
-            <SectionLabel>What we do</SectionLabel>
-            <h2>
-              Built for businesses
-              <br />
-              that are ready to move.
-            </h2>
+          <div className="trust-left">
+            <div className="trust-image">
+              <img
+                src={IMAGES.trust}
+                alt="Aurelia team collaborating in a warm, minimal studio space"
+                loading="lazy"
+              />
+            </div>
+            <div className="trust-text">
+              <SectionLabel>What we do</SectionLabel>
+              <h2>
+                Built for businesses
+                <br />
+                that are ready to move.
+              </h2>
+            </div>
           </div>
           <div>
             <p>
@@ -166,10 +209,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =========================================================
+          INTRO / ABOUT — with editorial image
+          ========================================================= */}
       <section className="intro">
         <div className="wrap intro-grid">
-          <div>
+          <div className="intro-left">
             <SectionLabel>About us</SectionLabel>
+            <div className="intro-image">
+              <img
+                src={IMAGES.about}
+                alt="Warm minimal interior reflecting Aurelia's design philosophy"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div>
             <h2>
@@ -184,6 +237,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =========================================================
+          SERVICES
+          ========================================================= */}
       <section className="services" id="services">
         <div className="wrap">
           <div className="section-heading">
@@ -205,6 +261,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =========================================================
+          WORK
+          ========================================================= */}
       <section className="work" id="work">
         <div className="wrap">
           <div className="section-heading">
@@ -220,7 +279,10 @@ export default function HomePage() {
 
           <div className="projects">
             {projects.slice(0, 3).map((project, index) => (
-              <article className={`project ${project.className}`} key={project.slug}>
+              <article
+                className={`project ${project.className}`}
+                key={project.slug}
+              >
                 <div className="project-visual">
                   <ProjectVisual index={index} />
                 </div>
@@ -241,7 +303,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="process" id="process">
+      {/* =========================================================
+          PROCESS — with subtle dark texture
+          ========================================================= */}
+      <section
+        className="process"
+        id="process"
+        style={
+          {
+            "--process-bg": `url(${IMAGES.processTexture})`,
+          } as React.CSSProperties
+        }
+      >
         <div className="wrap">
           <div className="process-intro">
             <SectionLabel>How we work</SectionLabel>
@@ -299,7 +372,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="technology">
+      {/* =========================================================
+          TECHNOLOGY — with subtle texture
+          ========================================================= */}
+      <section
+        className="technology"
+        style={
+          {
+            "--tech-bg": `url(${IMAGES.techTexture})`,
+          } as React.CSSProperties
+        }
+      >
         <div className="wrap technology-inner">
           <div>
             <SectionLabel>Built properly</SectionLabel>
@@ -332,6 +415,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =========================================================
+          CONTACT
+          ========================================================= */}
       <section className="contact" id="contact">
         <div className="wrap contact-inner">
           <SectionLabel>Have an idea?</SectionLabel>
@@ -354,5 +440,3 @@ export default function HomePage() {
     </main>
   );
 }
-
-           
